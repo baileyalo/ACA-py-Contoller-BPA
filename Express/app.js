@@ -17,7 +17,7 @@ app.use(express.static(__dirname+'/topic'));
 router.get('/', function(req, res) {
     res.send('Welcome to our Topics!' );
 });
-//route to nft meta data
+//route to connection
 router.post('/connections', function(req, res) {
     console.log(req.body);
     currstate= req.body?.rfc23_state;
@@ -31,7 +31,7 @@ router.post('/connections', function(req, res) {
             console.log ('connection ID:'. req.body?.connection_id);
             console.log ('Request Accepted');
 
-            restapi= 'http://20.151.204.61:8080/connections/' + req.body?.connection_id + '/accept-request?my_endpoint=http%'
+            restapi= 'http://20.151.204.61:8080/connections/' + req.body?.connection_id + 'accept-request?my_endpoint=http%3A%2F%2F20.151.204.61%3A8000" -H "accept: application/json'
         res.send(currstate);   
 
     }
