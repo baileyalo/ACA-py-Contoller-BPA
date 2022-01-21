@@ -5,12 +5,12 @@ function App() {
     <div className="App">
       <h3> Check Status</h3>
       <br></br>
-      <button type="button">Status</button> <p> isloading </p>
+      <button type="button">Status</button>
+      <p> isloading </p>
       <h3> Send Response </h3>
+      <br></br>
       <button> Accept</button><button> Decline</button>
       <p> isLoading </p>
- 
-
     </div>
   );
 }
