@@ -11,7 +11,7 @@ const [loading, setLoading] = useState(true);
 const [error, setError]= useState ();
 
 useEffect (()=>{
-  axios ('http://20.151.204.61:8080/connections/')
+  axios.get('http://34.228.20.198:3000/topic/connections/allconnections/')
   .then(res => {
     setData(res.data)
     console.log(data)
@@ -33,17 +33,21 @@ useEffect (()=>{
 
   return (
     <div className="App">
+      <h1> {data.their_label} </h1>
       <h3> Check Status</h3>
       <br></br>
+      <h3> Connection ID</h3>
+      <p>{data.connection_id}</p>
+      <br></br>
       <button onClick ={()=>setData(data.rfc23_state)} type="button">Status</button>
-      <p> isloading  </p>
-      <h3> Send Response </h3>
+      <p> isloading {data.rfc23_state}  </p>
+      <h3> Send Response  </h3>
       <br></br>
       <button onClick={()=>setData(data.rfc23_state)}  type="button"> Accept</button>
-      <p> isLoading  </p>
+      <p> isLoading {data.state} </p>
       <br></br>
       <button onClick={()=>setData(data.rfc23_state)} type="button"> Decline</button>
-      <p> isLoading  </p>
+      <p> isLoading {data.rfc23_state} </p>
     </div>
   );
 }

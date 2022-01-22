@@ -23,6 +23,7 @@ router.get('/', function(req, res) {
 });
 //route to connection
 router.post('/connections', function(req, res) {
+  // console json 
     console.log(req.body);
     currstate= req.body?.rfc23_state;
     
@@ -34,7 +35,7 @@ router.post('/connections', function(req, res) {
         case 'request-recieved':
             console.log ('connection ID:', req.body?.connection_id);
             console.log ('Request Accepted');
-            
+           //aca-py connection 
             restend = 'http://20.151.204.61:8080/connections/'; 
 
           restapi= restend + req.body?.connection_id + '/accept-request?my_endpoint='+ encodeURI(restend);
@@ -46,7 +47,7 @@ router.post('/connections', function(req, res) {
       axios
         .post(restapi, restData, restHeaders)
         .then(res => {
-          console.log('statusCode: ${res.status}');
+         console.log('statusCode: ${res.status}');
         })
         .catch(error => {
           console.error(error);
