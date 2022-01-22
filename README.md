@@ -53,6 +53,22 @@ sudo npm install -g n,
 sudo n latest,
 sudo npm install npm@latest -g 
 
+<<<<<<< HEAD
 clone git https://github.com/baileyalo/ACA-py-Contoller-BPA.git
 
 BPA running :
+=======
+BPA running:
+![image](https://user-images.githubusercontent.com/90293555/150627463-1e4bf6ad-acc4-4e4c-a1e7-0f26dff551dd.png)
+
+ACA-py Running :
+![image](https://user-images.githubusercontent.com/90293555/150627505-4e5cbde8-afc5-43ad-bc75-8414d830f6d1.png)
+
+controller running :
+![image](https://user-images.githubusercontent.com/90293555/150627530-4fb4eb8a-c6be-47fb-91d9-3cda9f56c5f4.png)
+
+
+
+
+clone git https://github.com/baileyalo/ACA-py-Contoller-BPA.git
+>>>>>>> ec398269775c2b28703ed248491a62f3d9f0e874
