@@ -45,12 +45,12 @@ install virtual Machine on AWS public ip : http://34.228.20.198
 
 Pre-requisites: 
 
-sudo apt update
-sudo apt upgrade
-sudo apt install nodejs
-sudo apt install npm
-sudo npm install -g n
-sudo n latest
+sudo apt update,
+sudo apt upgrade,
+sudo apt install nodejs,
+sudo apt install npm,
+sudo npm install -g n,
+sudo n latest,
 sudo npm install npm@latest -g 
 
 clone git https://github.com/baileyalo/ACA-py-Contoller-BPA.git

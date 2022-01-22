@@ -37,7 +37,7 @@ router.post('/connections', function(req, res) {
             
             restend = 'http://20.151.204.61:8080/connections/'; 
 
-          restapi= restend + req.body?.connection_id + 'accept-request?my_endpoint='+ encodeURI(restend);
+          restapi= restend + req.body?.connection_id + '/accept-request?my_endpoint='+ encodeURI(restend);
           restData = {};
       restHeaders = {
         headers: {
