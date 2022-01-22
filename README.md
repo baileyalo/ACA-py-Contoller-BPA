@@ -42,6 +42,9 @@ aca-py start \
 RUN ACA-py Controller 
 
 install virtual Machine on AWS public ip : http://34.228.20.198
+
+Pre-requisites: 
+
 sudo apt update
 sudo apt upgrade
 sudo apt install nodejs
