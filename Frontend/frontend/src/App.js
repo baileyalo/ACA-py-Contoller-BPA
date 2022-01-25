@@ -9,6 +9,7 @@ function App() {
 const [data, setData]= useState ();
 const [loading, setLoading] = useState(true);
 const [error, setError]= useState ();
+const acceptrequest= {};
 
 useEffect (()=>{
   axios.get('http://34.228.20.198:3000/topic/connections')
@@ -26,21 +27,24 @@ useEffect (()=>{
   })
 },[]);
 
-  if (loading) return 'loading...';
-
- acceptrequest(connection_id) {
-    axios.post('http://34.228.20.198:3000/topic/connections/acceptrequest', {"connection_id": connection_id})
-      .then(res => {
-        const data = res.data.results;
-        console.log(data);
-      })
-      .catch(error => {
-        console.error(error);
-      });
-
-  }
+if (loading) return 'loading...'; 
 
 
+acceptrequest((connection_id)=> {
+  axios.post('http://34.228.20.198:3000/topic/connections/acceptrequest', {"connection_id": connection_id})
+ .then(res => {
+   const data = res.data.results;
+   console.log(data);
+ })
+ .catch(error => {
+   console.error(error);
+ });
+
+});
+
+
+
+  
   return (
     <div className="App">   
       <p>Connection ID= {data.connection_id}</p>
