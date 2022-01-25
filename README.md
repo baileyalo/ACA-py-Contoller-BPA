@@ -53,7 +53,7 @@ sudo npm install -g n,
 sudo n latest,
 sudo npm install npm@latest -g 
 
-<<<<<<< HEAD
+ HEAD
 clone git https://github.com/baileyalo/ACA-py-Contoller-BPA.git
 
 BPA running :
@@ -72,3 +72,5 @@ controller running :
 
 clone git https://github.com/baileyalo/ACA-py-Contoller-BPA.git
 
+run on Controller server:
+React web interface : http://34.228.20.198: 3000 
