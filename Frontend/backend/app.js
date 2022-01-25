@@ -18,33 +18,12 @@ app.use(express.static(__dirname+'/topic'));
 
 app.use('/topic', router);
 
-router.get('/allconnections', function(req, res) {
-
-    restend = 'http://20.151.204.61:8080/connections/'; 
-
-    restData = {};
-    restHeaders = {
-    headers: {
-  }
-};
-    axios
-  .post(restend, restData, restHeaders)
-  .then(res => {
-    //dump json to console
-    console.log(res.data);
-    console.log('statusCode: ${res.status}');
-  })
-  .catch(error => {
-    console.error(error);
-  })
-});
-
 router.get('/', function(req, res) {
     res.send('Welcome to our Topics!' );
 });
 //route to connection
 router.post('/connections', function(req, res) {
-   // json data 
+  // console json 
     console.log(req.body);
     currstate= req.body?.rfc23_state;
     
@@ -56,7 +35,24 @@ router.post('/connections', function(req, res) {
         case 'request-recieved':
             console.log ('connection ID:', req.body?.connection_id);
             console.log ('Request Accepted');
-            
+           //aca-py connection 
+            restend = 'http://20.151.204.61:8080/connections/'; 
+
+          restapi= restend + req.body?.connection_id + '/accept-request?my_endpoint='+ encodeURI(restend);
+          restData = {};
+      restHeaders = {
+        headers: {
+        }
+      };
+      axios
+        .post(restapi, restData, restHeaders)
+        .then(res => {
+         console.log('statusCode: ${res.status}');
+        })
+        .catch(error => {
+          console.error(error);
+        })
+
       break;
     case "response-sent":
       console.log("*** Invitation Response sent to invitee");
