@@ -11,7 +11,7 @@ const [loading, setLoading] = useState(true);
 const [error, setError]= useState ();
 
 useEffect (()=>{
-  axios.get('http://34.228.20.198:3000/topic/connections/allconnections/')
+  axios.get('http://34.228.20.198:3000/topic/connections')
   .then(res => {
     setData(res.data)
     console.log(data)
@@ -28,27 +28,27 @@ useEffect (()=>{
 
   if (loading) return 'loading...';
 
+ acceptrequest(connection_id) {
+    axios.post('http://34.228.20.198:3000/topic/connections/acceptrequest', {"connection_id": connection_id})
+      .then(res => {
+        const data = res.data.results;
+        console.log(data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
 
+  }
 
 
   return (
-    <div className="App">
-      <h1> {data.their_label} </h1>
-      <h3> Check Status</h3>
+    <div className="App">   
+      <p>Connection ID= {data.connection_id}</p>
       <br></br>
-      <h3> Connection ID</h3>
-      <p>{data.connection_id}</p>
+      <p>State= {data.rfc23_state}</p>
       <br></br>
-      <button onClick ={()=>setData(data.rfc23_state)} type="button">Status</button>
-      <p> isloading {data.rfc23_state}  </p>
-      <h3> Send Response  </h3>
-      <br></br>
-      <button onClick={()=>setData(data.rfc23_state)}  type="button"> Accept</button>
-      <p> isLoading {data.state} </p>
-      <br></br>
-      <button onClick={()=>setData(data.rfc23_state)} type="button"> Decline</button>
-      <p> isLoading {data.rfc23_state} </p>
-    </div>
+      <button onClick={()=>setData(this.acceptrequest(data.connection_id))}  type="button"> Accept</button>
+      </div>
   );
 }
 
