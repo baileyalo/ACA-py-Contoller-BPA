@@ -25,15 +25,13 @@ router.get('/', async function(req, res) {
   restHeaders = {headers: {}};
   cons = await axios.get(restend, restData, restHeaders);
   console.log("Connections=", cons.data);
-
-
   res.status(200).send(conns.data);
     });
 //route to connection
 router.post('/acceptrequest', async function(req, res) {
-  console.log("Reached acceptrequest!");
+      console.log("Reached acceptrequest!");
            //aca-py connection 
-            restend = 'http://20.151.204.61:8080/connections/'; 
+      restend = 'http://20.151.204.61:8080/connections/'; 
 
       restapi= restend + req.body?.connection_id + '/accept-request?my_endpoint='+ encodeURI(restend);
       restData = {};
@@ -50,33 +48,31 @@ router.post('/acceptrequest', async function(req, res) {
           console.error(error);
         });
       });
-
   router.post('/connections', function(req, res) {
           // console json 
             console.log(req.body);
             currstate= req.body?.rfc23_state;
             
    switch (currstate){
-     case "invitation-sent":
+        case "invitation-sent":
              console.log ('Invitation created ');
             console.log ('connection ID:', req.body?.connection_id);
-       break;
-      case 'request-recieved':
+        break;
+        case 'request-recieved':
             console.log ('connection ID:', req.body?.connection_id);
             console.log ('Request Accepted');
-      break;
-    case "response-sent":
+        break;
+        case "response-sent":
             console.log("*** Invitation Response sent to invitee");
             console.log("Connection ID=", req.body?.connection_id);
-      break;
-    case "completed":
+        break;
+        case "completed":
            console.log("*** Connection is complete!");
            console.log("Connection ID=", req.body?.connection_id);
-      break;
-    case "undefined":
+        break;
+        case "undefined":
             console.log("XXX Unkown connection state");
             console.log("Connection ID=", req.body?.connection_id);
-
   }
   res.status(200).send("OK");
 });

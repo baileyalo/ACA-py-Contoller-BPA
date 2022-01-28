@@ -2,10 +2,7 @@ import './App.css';
 import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 
-
-
 function App() {
-
 const [data, setData]= useState ();
 const [loading, setLoading] = useState(true);
 const [error, setError]= useState ();
@@ -28,8 +25,6 @@ useEffect (()=>{
 },[]);
 
 if (loading) return 'loading...'; 
-
-
 acceptrequest((connection_id)=> {
   axios.post('http://34.228.20.198:3000/topic/connections/acceptrequest', {"connection_id": connection_id})
  .then(res => {
@@ -39,12 +34,7 @@ acceptrequest((connection_id)=> {
  .catch(error => {
    console.error(error);
  });
-
-});
-
-
-
-  
+});  
   return (
     <div className="App">   
       <p>Connection ID= {data.connection_id}</p>
