@@ -1,3 +1,15 @@
+This project is building and run an ACA-py And BPA , a controller was created to be used a middle man to communicate with the BPA and ACA-py 
+
+Technologies and Framework used:
+
+1. Node.js
+2. Express js
+3. AWS 
+4. Azure
+5. Ubuntu
+6. React
+
+
 # ACA-py-Contoller-BPA
 
 RUN BPA :
